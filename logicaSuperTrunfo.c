@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+
+//O professor passou a lógica de verificar individualmente cada comparação, onde se a carta vencer as 2 ela ganha, se vencer uma ela empata, e se nao vencer ela perde. Não a soma.
+
 int main() {
     // Carta 1:
 
@@ -99,10 +102,10 @@ int main() {
     printf("\n");
 
     //Batalha das cartas
-    int vencedor;
-    int escolha;
+    int resultado1 = 2, resultado2 =2;
+    int escolha1, escolha2;
     printf("\n================== BATALHA DAS CARTAS ==================\n");
-    printf("Escolha uma das opções para batalhar:\n");
+    printf("Escolha a primeira opção para batalhar:\n");
     printf("1 - População\n");
     printf("2 - Área\n");
     printf("3 - PIB\n");
@@ -110,93 +113,137 @@ int main() {
     printf("5 - Densidade demográfica\n");
     printf("6 - PIB per Capita\n");
     printf("==========================================================\n");
-    scanf("%d", &escolha);
+    scanf("%d", &escolha1);
     
-    switch (escolha) {
-        case 1:
-        if (populacao1 > populacao2){
+    switch (escolha1) {
+        case 1: 
+            printf("Você escolheu População!\n");
             printf("Carta 1: %lu habitantes | Carta 2: %lu habitantes\n", populacao1, populacao2);
-            vencedor = 1;
-        } else if (populacao2 > populacao1) {
-            printf("Carta 1: %lu habitantes | Carta 2: %lu habitantes\n", populacao1, populacao2);
-            vencedor = 2;
-        } else {
-            printf("Carta 1: %lu habitantes | Carta 2: %lu habitantes\n", populacao1, populacao2);
-            printf("Empate em População!\n");
-            vencedor = 0; 
-        }
-        break;
+            resultado1 = (populacao1 > populacao2) ? 1 : (populacao2 > populacao1) ? 0 : 2;
+            if (resultado1 == 2) {
+                printf("Empate em População!\n");
+            }
+            break;
         case 2:
-        if (area1 > area2){
+            printf("Você escolheu Área!\n");
             printf("Carta 1: %.2f km² | Carta 2: %.2f km²\n", area1, area2);
-            vencedor = 1;
-        } else if (area2 > area1) {
-            printf("Carta 1: %.2f km² | Carta 2: %.2f km²\n", area1, area2);
-            vencedor = 2;
-        } else {
-            printf("Carta 1: %.2f km² | Carta 2: %.2f km²\n", area1, area2);
-            printf("Empate em Área!\n");
-            vencedor = 0; 
-        }
-        break;
+            resultado1 = (area1 > area2) ? 1 : (area2 > area1) ? 0 : 2;
+            if (resultado1 == 2) {
+                printf("Empate em Área!\n");
+            }
+            break;
         case 3:
-        if (pib1 > pib2){
+            printf("Você escolheu PIB!\n");
             printf("Carta 1: R$ %.2f | Carta 2: R$ %.2f\n", pib1, pib2);
-            vencedor = 1;
-        } else if (pib2 > pib1) {
-            printf("Carta 1: R$ %.2f | Carta 2: R$ %.2f\n", pib1, pib2);
-            vencedor = 2;
-        } else {
-            printf("Carta 1: R$ %.2f | Carta 2: R$ %.2f\n", pib1, pib2);
-            printf("Empate em PIB!\n");
-            vencedor = 0; 
-        }
-        break;
-        case 4:
-        if (pontos_turisticos1 > pontos_turisticos2){
+            resultado1 = (pib1 > pib2) ? 1 : (pib2 > pib1) ? 0 : 2;
+            if (resultado1 == 2) {
+                printf("Empate em PIB!\n");
+            }
+            break;
+        case 4: 
+            printf("Você escolheu Número de pontos turísticos!\n");
             printf("Carta 1: %d pontos turísticos | Carta 2: %d pontos turísticos\n", pontos_turisticos1, pontos_turisticos2);
-            vencedor = 1;
-        } else if (pontos_turisticos2 > pontos_turisticos1) {
-            printf("Carta 1: %d pontos turísticos | Carta 2: %d pontos turísticos\n", pontos_turisticos1, pontos_turisticos2);
-            vencedor = 2;
-        } else {
-            printf("Carta 1: %d pontos turísticos | Carta 2: %d pontos turísticos\n", pontos_turisticos1, pontos_turisticos2);
-            printf("Empate em Número de pontos turísticos!\n");
-            vencedor = 0; 
-        }
-        break;
+            resultado1 = (pontos_turisticos1 > pontos_turisticos2) ? 1 : (pontos_turisticos2 > pontos_turisticos1) ? 0 : 2;
+            if (resultado1 == 2) {
+                printf("Empate em Número de pontos turísticos!\n");
+            }
+            break;
         case 5:
-        if (densidade_populacional1 < densidade_populacional2){ 
+            printf("Você escolheu Densidade Populacional!\n");
             printf("Carta 1: %.2f hab/km² | Carta 2: %.2f hab/km²\n", densidade_populacional1, densidade_populacional2);
-            vencedor = 1;
-        } else if (densidade_populacional2 < densidade_populacional1) {
-            printf("Carta 1: %.2f hab/km² | Carta 2: %.2f hab/km²\n", densidade_populacional1, densidade_populacional2);
-            vencedor = 2;
-        } else {
-            printf("Carta 1: %.2f hab/km² | Carta 2: %.2f hab/km²\n", densidade_populacional1, densidade_populacional2);
-            printf("Empate em Densidade Populacional!\n");
-            vencedor = 0; 
-        }
-        break;
-    case 6:
-        if (pib_capita1 > pib_capita2){
+            resultado1 = (densidade_populacional1 < densidade_populacional2) ? 1 : (densidade_populacional2 < densidade_populacional1) ? 0 : 2;
+            if (resultado1 == 2) {
+                printf("Empate em Densidade Populacional!\n");
+            }
+            break;
+        case 6:
+            printf("Você escolheu PIB per Capita!\n");
             printf("Carta 1: R$ %.2f | Carta 2: R$ %.2f\n", pib_capita1, pib_capita2);
-            vencedor = 1;
-        } else if (pib_capita2 > pib_capita1) {
-            printf("Carta 1: R$ %.2f | Carta 2: R$ %.2f\n", pib_capita1, pib_capita2);
-            vencedor = 2;
-        } else {
-            printf("Carta 1: R$ %.2f | Carta 2: R$ %.2f\n", pib_capita1, pib_capita2);
-            printf("Empate em PIB per Capita!\n");
-            vencedor = 0;
-        }
-        break; 
+            resultado1 = (pib_capita1 > pib_capita2) ? 1 : (pib_capita2 > pib_capita1) ? 0 : 2;
+            if (resultado1 == 2) {
+                printf("Empate em PIB per Capita!\n");
+            }
+            break; 
         default:
-        printf("Opção inválida! Escolha entre 1 e 6.\n");
-        vencedor = -1;
-        break;
+            printf("Opção inválida! Escolha entre 1 e 6.\n");
+            resultado1 = -1;
+            break;
     }
-    if (vencedor == 1) {
+    printf("\n================== BATALHA DAS CARTAS ==================\n");
+    printf("Escolha a segunda opção para batalhar:\n");
+    printf("1 - População\n");
+    printf("2 - Área\n");
+    printf("3 - PIB\n");
+    printf("4 - Número de pontos turísticos\n");
+    printf("5 - Densidade demográfica\n");
+    printf("6 - PIB per Capita\n");
+    printf("==========================================================\n");
+    scanf("%d", &escolha2);
+    
+    if (escolha1 == escolha2) {
+        printf("Você não pode escolher a mesma opção duas vezes! Jogo encerrado\n");
+        resultado2 = -1;
+    } else {
+            switch (escolha2) {
+        case 1: 
+            printf("Você escolheu População!\n");
+            printf("Carta 1: %lu habitantes | Carta 2: %lu habitantes\n", populacao1, populacao2);
+           resultado2 = (populacao1 > populacao2) ? 1 : (populacao2 > populacao1) ? 0 : 2;
+            if (resultado2 == 2) {
+                printf("Empate em População!\n");
+            }
+            break;
+        case 2:
+            printf("Você escolheu Área!\n");
+            printf("Carta 1: %.2f km² | Carta 2: %.2f km²\n", area1, area2);
+           resultado2 = (area1 > area2) ? 1 : (area2 > area1) ? 0 : 2;
+            if (resultado2 == 2) {
+                printf("Empate em Área!\n");
+            }
+            break;
+        case 3:
+            printf("Você escolheu PIB!\n");
+            printf("Carta 1: R$ %.2f | Carta 2: R$ %.2f\n", pib1, pib2);
+           resultado2 = (pib1 > pib2) ? 1 : (pib2 > pib1) ? 0 : 2;
+            if (resultado2 == 2) {
+                printf("Empate em PIB!\n");
+            }
+            break;
+        case 4: 
+            printf("Você escolheu Número de pontos turísticos!\n");
+            printf("Carta 1: %d pontos turísticos | Carta 2: %d pontos turísticos\n", pontos_turisticos1, pontos_turisticos2);
+           resultado2 = (pontos_turisticos1 > pontos_turisticos2) ? 1 : (pontos_turisticos2 > pontos_turisticos1) ? 0 : 2;
+            if (resultado2 == 2) {
+                printf("Empate em Número de pontos turísticos!\n");
+            }
+            break;
+        case 5:
+            printf("Você escolheu Densidade Populacional!\n");
+            printf("Carta 1: %.2f hab/km² | Carta 2: %.2f hab/km²\n", densidade_populacional1, densidade_populacional2);
+           resultado2 = (densidade_populacional1 < densidade_populacional2) ? 1 : (densidade_populacional2 < densidade_populacional1) ? 0 : 2;
+            if (resultado2 == 2) {
+                printf("Empate em Densidade Populacional!\n");
+            }
+            break;
+        case 6:
+            printf("Você escolheu PIB per Capita!\n");
+            printf("Carta 1: R$ %.2f | Carta 2: R$ %.2f\n", pib_capita1, pib_capita2);
+           resultado2 = (pib_capita1 > pib_capita2) ? 1 : (pib_capita2 > pib_capita1) ? 0 : 2;
+            if (resultado2 == 2) {
+                printf("Empate em PIB per Capita!\n");
+            }
+            break; 
+        default:
+            printf("Opção inválida! Escolha entre 1 e 6.\n");
+           resultado2 = -1;
+            break;
+    }
+    if (resultado1 == -1 || resultado2 == -1) { // Se alguma escolha de rodada foi inválida o valor vai ser -1
+        printf("\n-----------------------------------\n");
+        printf("     !!!! JOGO INVÁLIDO !!!!\n");
+        printf("-----------------------------------\n");
+        printf("Uma ou mais escolhas de atributo foram inválidas. Jogo encerrado sem vencedor claro.\n");
+} else if (resultado1 == 1 && resultado2 == 1) {
         printf("\n-----------------------------------\n");
         printf("       !!!! VENCEDORA !!!!\n");
         printf("-----------------------------------\n");
@@ -226,7 +273,7 @@ int main() {
         printf("Densidade Populacional: %.2f hab/km²\n", densidade_populacional2);
         printf("PIB per Capita: R$ %.2f\n", pib_capita2);
         printf("\n");
-    } else if (vencedor == 2) {
+    } else if (resultado1 == 0 && resultado2 == 0) {
         printf("\n-----------------------------------\n");
         printf("       !!!! VENCEDORA !!!!\n");
         printf("-----------------------------------\n");
@@ -256,7 +303,7 @@ int main() {
         printf("Densidade Populacional: %.2f hab/km²\n", densidade_populacional1);
         printf("PIB per Capita: R$ %.2f\n", pib_capita1);
         printf("\n");
-    } else if (vencedor == 0) {
+    } else {  
         printf("\n-----------------------------------\n");
         printf("         !!!! EMPATE !!!!\n");
         printf("-----------------------------------\n");
@@ -289,9 +336,12 @@ int main() {
         printf("PIB per Capita: R$ %.2f\n", pib_capita2);
         printf("\n");
     }
-
-    return 0;
+    
 }
+return 0;
+}
+    
+
      
    
 
@@ -344,7 +394,7 @@ PIB per Capita: R$ 31250.00
 
 
 ================== BATALHA DAS CARTAS ==================
-Escolha uma das opções para batalhar:
+Escolha a primeira opção para batalhar:
 1 - População
 2 - Área
 3 - PIB
@@ -352,8 +402,22 @@ Escolha uma das opções para batalhar:
 5 - Densidade demográfica
 6 - PIB per Capita
 ==========================================================
-6
-Carta 1: R$ 46818.18 | Carta 2: R$ 31250.00
+1
+Você escolheu População!
+Carta 1: 2200000 habitantes | Carta 2: 1600000 habitantes
+
+================== BATALHA DAS CARTAS ==================
+Escolha a segunda opção para batalhar:
+1 - População
+2 - Área
+3 - PIB
+4 - Número de pontos turísticos
+5 - Densidade demográfica
+6 - PIB per Capita
+==========================================================
+5
+Você escolheu População!
+Carta 1: 2200000 habitantes | Carta 2: 1600000 habitantes
 
 -----------------------------------
        !!!! VENCEDORA !!!!
@@ -382,4 +446,5 @@ PIB: R$ 49999998976.00
 Número de pontos turísticos: 55
 Densidade Populacional: 7322.65 hab/km²
 PIB per Capita: R$ 31250.00
+
 */
